@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRCKEL Enterprises LLC | East Central Indiana Real Estate</title>
+  <meta name="description" content="BRCKEL Enterprises LLC buys houses in East Central Indiana and helps families with owner-financed homeownership options." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Crimson+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#FAF3E0; --surface:#F0E6CC; --surface2:#E8D9B8; --white:#FFFDF5;
+      --text:#2C1810; --textLight:#6B4E35; --textMuted:#9A7B5E; --border:#D4B896;
+      --accent:#C9973A; --accentDark:#8B6914; --dark:#3D2B1F; --dark2:#5C3D2E;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Crimson Pro',Georgia,serif;background:var(--bg);color:var(--text)}
+    a{color:inherit}
+    .nav{background:var(--dark);border-bottom:2px solid var(--accentDark);position:sticky;top:0;z-index:20}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .brand{cursor:pointer;text-decoration:none}
+    .brand-title{font-family:'Playfair Display',serif;font-weight:900;font-size:17px;color:var(--accent);letter-spacing:.04em}
+    .brand-sub{font-size:9px;color:var(--surface2);letter-spacing:.18em;text-transform:uppercase;margin-top:1px}
+    .nav-links{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+    .nav-links a{color:var(--surface2);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid transparent;padding:4px 0;font-weight:700;white-space:nowrap}
+    .nav-links a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+    .menu{display:none;background:none;border:0;color:var(--surface);font-size:28px}
+    .hero{background:linear-gradient(145deg,#2A1E14 0%,var(--dark) 40%,#5C3D2E 80%,#7A5030 100%);padding:96px 24px 80px;text-align:center;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 60%,rgba(201,151,58,.12) 0%,transparent 55%)}
+    .hero>*{position:relative}
+    .badge{display:inline-block;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,151,58,.15);color:#8B6914;border:1px solid rgba(201,151,58,.35)}
+    .hero .badge{margin-bottom:22px;color:var(--accent);background:rgba(201,151,58,.13)}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+    h1{font-size:54px;font-weight:900;color:var(--white);line-height:1.12;margin:0 0 26px}
+    h1 span{color:var(--accent)}
+    .hero p{font-size:19px;color:var(--surface);line-height:1.75;font-weight:300;max-width:620px;margin:0 auto 38px}
+    .btn{display:inline-block;padding:14px 30px;font-family:'Crimson Pro',serif;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .25s;border:0;text-decoration:none;text-align:center}
+    .btn.accent{background:var(--accent);color:var(--white)}
+    .btn.accent:hover{background:var(--accentDark);transform:translateY(-2px)}
+    .btn.outline{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+    .btn.outline:hover{background:var(--accent);color:var(--white)}
+    .btn.dark{background:var(--dark);color:var(--surface)}
+    .btn.white{background:var(--white);color:var(--dark)}
+    .phone{color:var(--accent);font-size:20px;font-weight:700;text-decoration:none}
+    .bar{background:#2A1E14;padding:18px 24px;border-bottom:1px solid var(--accentDark)}
+    .bar-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:14px}
+    .bar-item{color:var(--surface2);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+    section{padding:80px 24px}
+    .wrap{max-width:1100px;margin:0 auto}
+    .wrap-narrow{max-width:820px;margin:0 auto}
+    .center{text-align:center}
+    .section-title{font-size:40px;font-weight:700;color:var(--dark);margin:0 0 8px}
+    .eyebrow{color:var(--textMuted);font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+    .divider{width:48px;height:3px;background:var(--accent);margin:14px 0 24px}
+    .center .divider{margin:14px auto 24px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .card{background:var(--white);border:1px solid var(--border);box-shadow:0 2px 20px rgba(61,43,31,.06);padding:32px}
+    .num{width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin:0 auto 20px}
+    .surface{background:var(--surface)}
+    .cta{background:linear-gradient(135deg,var(--accentDark),var(--accent));padding:64px 24px;text-align:center}
+    .cta h2{font-size:38px;color:var(--white);margin:0 0 16px}
+    .cta p{color:rgba(255,253,245,.88);font-size:18px;max-width:520px;margin:0 auto 32px}
+    .page-hero{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:72px 24px;text-align:center}
+    .page-hero h1{font-size:48px}
+    .page-hero p{color:var(--surface);font-size:18px;max-width:620px;margin:0 auto}
+    .field{margin-bottom:18px}
+    label{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--textLight);margin-bottom:6px}
+    input,select,textarea{width:100%;padding:12px 16px;font-family:'Crimson Pro',serif;font-size:16px;border:1px solid var(--border);background:var(--white);color:var(--text);outline:none;border-radius:0}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,151,58,.15)}
+    textarea{resize:vertical;min-height:90px}
+    .required{color:#c0392b}
+    .form-message{display:none;margin-top:16px;padding:14px;text-align:center;font-size:15px}
+    .form-success{background:#eef8ef;border:1px solid #b7dfbd;color:#1f6b2a}
+    .form-error{background:#fdf0f0;border:1px solid #f5c6cb;color:#721c24}
+    .small{color:var(--textMuted);font-size:13px;text-align:center;margin-top:12px}
+    .home-card{padding:0;overflow:hidden}
+    .home-img{height:160px;background:linear-gradient(135deg,var(--dark2),var(--accentDark));display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+    .tag{position:absolute;top:12px;right:12px;background:var(--accent);color:var(--white);font-size:10px;font-weight:700;padding:5px 10px;text-transform:uppercase}
+    .list-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:13px;color:var(--textLight);font-size:16px;line-height:1.6}
+    .check{color:var(--accent);font-weight:700}
+    footer{background:var(--dark);border-top:2px solid var(--accentDark);padding:56px 24px 32px}
+    footer .foot-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:44px}
+    footer, footer a{color:var(--surface2)}
+    footer a{text-decoration:none;display:block;margin-bottom:10px}
+    footer h4{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+    .copyright{max-width:1100px;margin:0 auto;border-top:1px solid rgba(212,184,150,.15);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--textMuted);font-size:12px}
+    .hidden{display:none}
+    @media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.nav-links{gap:12px}}
+    @media(max-width:700px){
+      .nav-inner{align-items:flex-start;padding-top:14px;padding-bottom:14px}
+      .menu{display:block}
+      .nav-links{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:18px}
+      .nav.open .nav-links{display:flex}
+      .nav.open .nav-inner{flex-wrap:wrap}
+      h1,.page-hero h1{font-size:36px}
+      .section-title{font-size:32px}
+      .grid-2,.grid-3{grid-template-columns:1fr}
+      section{padding:56px 20px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="brand">
+        <div class="brand-title">BRCKEL ENTERPRISES LLC</div>
+        <div class="brand-sub">East Central Indiana</div>
+      </a>
+      <button class="menu" type="button" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#sell">Sell Your Home</a>
+        <a href="#homes">Available Homes</a>
+        <a href="#slowflip">The Slow Flip</a>
+        <a href="#invest">For Investors</a>
+        <a href="#wholesale">Wholesale Buyers</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="badge">East Central Indiana</div>
+      <h1>We Buy Houses in<br><span>East Central Indiana</span><br><em style="font-weight:400;font-size:.78em;color:#D4B896">Any Condition. Any Situation.</em></h1>
+      <p>No repairs. No commissions. No hassle. Get a fair offer fast—and close on your schedule.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:36px">
+        <a class="btn accent" href="#sell">Get My Cash Offer</a>
+        <a class="btn outline" href="#homes">See Available Homes</a>
+      </div>
+      <a class="phone" href="tel:7652733376">📞 765-273-3376</a>
+    </section>
+
+    <div class="bar"><div class="bar-inner">
+      <div class="bar-item">✦ Fast, Fair Offers</div><div class="bar-item">✦ Close in Days</div><div class="bar-item">✦ Zero Agent Fees</div><div class="bar-item">✦ We Buy As-Is</div><div class="bar-item">✦ Any Situation</div>
+    </div></div>
+
+    <section>
+      <div class="wrap center">
+        <div class="eyebrow">Simple Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <div class="divider"></div>
+        <div class="grid-3">
+          <div class="card center"><div class="num">1</div><h3>Tell Us About Your Home</h3><p>Fill out our quick form with basic details. Takes about 2 minutes.</p></div>
+          <div class="card center"><div class="num">2</div><h3>Get Your Offer</h3><p>We review your info and contact you quickly with a fair, no-obligation offer.</p></div>
+          <div class="card center"><div class="num">3</div><h3>Close & Get Paid</h3><p>Pick your closing date. We handle the paperwork. You walk away with cash.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface">
+      <div class="wrap">
+        <div class="center"><h2 class="section-title">We’re Different From the Rest</h2><div class="divider"></div></div>
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="color:var(--textMuted)">Traditional Sale</h3>
+            <div class="list-row">✗ <span>Wait months for buyers</span></div>
+            <div class="list-row">✗ <span>Pay 5–6% in commissions</span></div>
+            <div class="list-row">✗ <span>Make expensive repairs first</span></div>
+            <div class="list-row">✗ <span>Uncertain closing timelines</span></div>
+            <div class="list-row">✗ <span>Buyer financing can fall through</span></div>
+          </div>
+          <div class="card" style="border:2px solid var(--accent)">
+            <h3 style="color:var(--accent)">With BRCKEL Enterprises</h3>
+            <div class="list-row"><span class="check">✓</span><span>Offer often within 24 hours</span></div>
+            <div class="list-row"><span class="check">✓</span><span>Zero commissions or fees</span></div>
+            <div class="list-row"><span class="check">✓</span><span>We buy as-is, no repairs needed</span></div>
+            <div class="list-row"><span class="check">✓</span><span>You choose the closing date</span></div>
+            <div class="list-row"><span class="check">✓</span><span>Cash offer — no financing delays</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to Get Your Offer?</h2>
+      <p>No obligation. No pressure. Just a fair offer from a real local buyer.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a class="btn dark" href="#sell">Submit My Property</a>
+        <a class="btn white" href="tel:7652733376">📞 Call 765-273-3376</a>
+      </div>
+    </section>
+
+    <section id="sell" class="page-hero">
+      <div class="badge">No Obligation · No Hassle · No Fees</div>
+      <h1>Get a <span>Fair Cash Offer</span><br>for Your Home</h1>
+      <p>Tell us about your property and we’ll be in touch quickly.</p>
+    </section>
+
+    <section>
+      <div class="wrap-narrow">
+        <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST">
+          <h2>Property Information</h2><div class="divider"></div>
+          <input type="hidden" name="_subject" value="🏚️ New Seller Lead — Indiana">
+          <div class="grid-2">
+            <div class="field"><label>Full Name <span class="required">*</span></label><input name="name" required placeholder="Your full name"></div>
+            <div class="field"><label>Phone <span class="required">*</span></label><input name="phone" required placeholder="(765) 555-5555"></div>
+          </div>
+          <div class="field"><label>Email <span class="required">*</span></label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="field"><label>Property Address</label><input name="address" placeholder="Street address, City, IN, ZIP"></div>
+          <div class="field"><label>Property Condition</label><select name="condition"><option value="">Select…</option><option>Move-in Ready</option><option>Needs Minor Repairs</option><option>Needs Major Repairs</option><option>Significant Distress</option><option>Not Sure</option></select></div>
+          <div class="grid-2">
+            <div class="field"><label>Asking Price</label><input name="price" placeholder="e.g. $85,000"></div>
+            <div class="field"><label>Mortgage Balance</label><input name="mortgage" placeholder="e.g. Free & Clear"></div>
+          </div>
+          <div class="field"><label>Timeline to Sell</label><select name="timeline"><option value="">Select…</option><option>ASAP</option><option>Within 30 days</option><option>1–3 months</option><option>3–6 months</option><option>Just exploring</option></select></div>
+          <div class="field"><label>How Did You Hear About Us?</label><select name="howHeard"><option value="">Select…</option><option>Google Search</option><option>Facebook / Social Media</option><option>Postcard or Direct Mail</option><option>Friend or Family Referral</option><option>Yard Sign</option><option>Other</option></select></div>
+          <div class="field"><label>Anything Else?</label><textarea name="notes" placeholder="Tell us more about your situation…"></textarea></div>
+          <button class="btn accent" style="width:100%" type="submit">Submit — Get My Free Offer</button>
+          <div class="form-message form-success">Thank you! Your information was submitted. We’ll contact you soon.</div>
+          <div class="form-message form-error">Something went wrong. Please call 765-273-3376.</div>
+          <p class="small">100% confidential · No obligation · No pressure ever</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="homes" class="page-hero">
+      <div class="badge">Owner Financing · No Bank Required</div>
+      <h1>Available <span>Homes</span></h1>
+      <p>Affordable owner-financed homes. Low down payments. No bank needed.</p>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="grid-3">
+          <div class="card home-card"><div class="home-img">🏡<span class="tag">Available Now</span></div><div style="padding:22px"><p>📍 1234 Maple St, Muncie, IN</p><p>🛏 3 bed · 🚿 1 bath · 📐 1,100 sqft</p><h3>$79,900</h3><p>Down: $3,500 · ~$825/mo</p></div></div>
+          <div class="card home-card"><div class="home-img">🏡<span class="tag">Recently Updated</span></div><div style="padding:22px"><p>📍 567 Oak Ave, Anderson, IN</p><p>🛏 3 bed · 🚿 2 bath · 📐 1,350 sqft</p><h3>$89,900</h3><p>Down: $4,000 · ~$875/mo</p></div></div>
+          <div class="card home-card"><div class="home-img" style="background:var(--surface2)">🏡<span class="tag" style="background:#7A6050">Coming Soon</span></div><div style="padding:22px"><p>📍 890 Elm Dr, New Castle, IN</p><p>🛏 2 bed · 🚿 1 bath · 📐 950 sqft</p><h3>$69,900</h3><p>Down: $3,000 · ~$750/mo</p></div></div>
+        </div>
+
+        <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST" style="max-width:720px;margin:60px auto 0">
+          <h2>Get Pre-Qualified</h2><div class="divider"></div>
+          <input type="hidden" name="_subject" value="🏡 New Buyer Application — Indiana">
+          <div class="grid-2">
+            <div class="field"><label>Full Name *</label><input name="name" required placeholder="Your name"></div>
+            <div class="field"><label>Phone *</label><input name="phone" required placeholder="(765) 555-5555"></div>
+          </div>
+          <div class="field"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="grid-2">
+            <div class="field"><label>Monthly Income</label><select name="income"><option value="">Select…</option><option>Under $2,000/mo</option><option>$2,000–$3,000/mo</option><option>$3,000–$4,500/mo</option><option>$4,500+/mo</option></select></div>
+            <div class="field"><label>Down Payment Available</label><select name="down"><option value="">Select…</option><option>$1,000–$2,500</option><option>$2,500–$5,000</option><option>$5,000–$10,000</option><option>$10,000+</option></select></div>
+          </div>
+          <button class="btn accent" style="width:100%" type="submit">Apply Now — Get Pre-Qualified</button>
+          <div class="form-message form-success">Thank you! Your application was submitted.</div>
+          <div class="form-message form-error">Something went wrong. Please call 765-273-3376.</div>
+        </form>
+      </div>
+    </section>
+
+    <section id="slowflip" class="page-hero">
+      <div class="badge">The BRCKEL Method</div>
+      <h1>What Is a <span>Slow Flip?</span></h1>
+      <p>A simple, powerful path to homeownership—without perfect credit or a bank loan.</p>
+    </section>
+
+    <section>
+      <div class="wrap-narrow">
+        <div class="card center surface">
+          <p style="font-size:21px;line-height:1.8">Instead of going through a bank, <strong>we finance the home directly for you.</strong><br>No banks. No complicated approvals. A clear, honest path to ownership.</p>
+        </div>
+        <h2 class="section-title" style="margin-top:50px">How It Works</h2><div class="divider"></div>
+        <div class="list-row"><span class="num">1</span><span><strong>Find a Home You Love</strong><br>Browse our available inventory and pick a home that fits your family.</span></div>
+        <div class="list-row"><span class="num">2</span><span><strong>Make a Small Down Payment</strong><br>Typically $3,000–$5,000 to get started.</span></div>
+        <div class="list-row"><span class="num">3</span><span><strong>Move In Right Away</strong><br>Once your down payment is in place, you move in quickly.</span></div>
+        <div class="list-row"><span class="num">4</span><span><strong>Make Affordable Monthly Payments</strong><br>Simple, predictable payments—typically $825–$1,000/month.</span></div>
+        <div class="card surface" style="margin-top:40px">
+          <h2 class="center">Real Numbers. Full Transparency.</h2>
+          <div class="grid-2">
+            <div class="card center"><label>Purchase Price</label><h3>~$89,900</h3></div>
+            <div class="card center"><label>Down Payment</label><h3>$3,000–$5,000</h3></div>
+            <div class="card center"><label>Monthly Payment</label><h3>~$875</h3></div>
+            <div class="card center"><label>Taxes & Insurance</label><h3>~$200/mo</h3></div>
+          </div>
+          <p class="small">No balloon payments. No hidden fees. No surprises.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="invest" class="page-hero">
+      <div class="badge">Private Lending Opportunity</div>
+      <h1>Earn <span>10–12% Returns</span><br>Backed by Real Estate</h1>
+      <p>Consistent, secured returns. No property management. No hassle.</p>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="grid-2">
+          <div class="card"><h3>Your Role as a Lender</h3><p>Simple: you fund the purchase. We handle everything else. You collect interest.</p><p><strong>Typical loan:</strong> $30K–$40K · <strong>Term:</strong> 5 years · <strong>Security:</strong> real estate collateral</p></div>
+          <div class="card"><h3>How We Protect Your Investment</h3><div class="list-row"><span class="check">✓</span><span>Low purchase prices create a strong equity buffer</span></div><div class="list-row"><span class="check">✓</span><span>Every loan secured by a physical real estate asset</span></div><div class="list-row"><span class="check">✓</span><span>We only pursue deals with strong profit margins</span></div></div>
+        </div>
+        <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST" style="max-width:650px;margin:50px auto 0">
+          <h2>See Current Opportunities</h2><div class="divider"></div>
+          <input type="hidden" name="_subject" value="📈 New Investor Lead — Indiana">
+          <div class="grid-2">
+            <div class="field"><label>Name *</label><input name="name" required placeholder="Your name"></div>
+            <div class="field"><label>Phone *</label><input name="phone" required placeholder="(765) 555-5555"></div>
+          </div>
+          <div class="field"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+          <div class="field"><label>Available Capital Range</label><select name="capital"><option value="">Select…</option><option>$10,000–$25,000</option><option>$25,000–$50,000</option><option>$50,000–$100,000</option><option>$100,000–$250,000</option><option>$250,000+</option></select></div>
+          <button class="btn accent" style="width:100%" type="submit">Become a Lending Partner</button>
+          <div class="form-message form-success">Thank you! Your information was submitted.</div>
+          <div class="form-message form-error">Something went wrong. Please call 765-273-3376.</div>
+        </form>
+      </div>
+    </section>
+
+    <section id="wholesale" class="page-hero">
+      <div class="badge">Wholesale Buyers Network</div>
+      <h1>Get First Access to<br><span>Off-Market Deals</span></h1>
+      <p>Join our buyer network and be first to hear about discounted properties in East Central Indiana.</p>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="grid-2">
+          <div>
+            <h2 class="section-title">Why Join Our Buyer List?</h2><div class="divider"></div>
+            <div class="list-row">🎯 <span><strong>Off-Market Access</strong><br>Deals go to our list first.</span></div>
+            <div class="list-row">💰 <span><strong>Deep Discounts</strong><br>We acquire at significant discounts.</span></div>
+            <div class="list-row">🤝 <span><strong>No Obligation</strong><br>Zero pressure.</span></div>
+          </div>
+          <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST">
+            <h2>Join the Buyer List</h2><div class="divider"></div>
+            <input type="hidden" name="_subject" value="🎯 New Wholesale Buyer — Indiana">
+            <div class="grid-2">
+              <div class="field"><label>Name *</label><input name="name" required placeholder="Your name"></div>
+              <div class="field"><label>Phone *</label><input name="phone" required placeholder="(765) 555-5555"></div>
+            </div>
+            <div class="field"><label>Email *</label><input type="email" name="email" required placeholder="your@email.com"></div>
+            <div class="field"><label>Target Markets</label><input name="markets" placeholder="e.g. Muncie, Anderson, 47302…"></div>
+            <div class="field"><label>Budget Per Deal</label><select name="budget"><option value="">Select…</option><option>Under $20,000</option><option>$20,000–$40,000</option><option>$40,000–$70,000</option><option>$70,000–$100,000</option><option>$100,000+</option></select></div>
+            <div class="field"><label>Additional Notes</label><textarea name="notes" placeholder="Areas, condition requirements, volume goals…"></textarea></div>
+            <button class="btn accent" style="width:100%" type="submit">Add Me to the Buyer List</button>
+            <div class="form-message form-success">Thank you! You’re on the list.</div>
+            <div class="form-message form-error">Something went wrong. Please call 765-273-3376.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <div class="brand-title">BRCKEL ENTERPRISES LLC</div>
+        <p>Helping East Central Indiana families find affordable paths to homeownership—and investors find consistent returns.</p>
+        <a class="phone" href="tel:7652733376">📞 765-273-3376</a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#sell">Sell Your Home</a>
+        <a href="#homes">Available Homes</a>
+        <a href="#slowflip">The Slow Flip</a>
+        <a href="#invest">For Investors</a>
+        <a href="#wholesale">Wholesale Buyers</a>
+      </div>
+      <div>
+        <h4>Service Area</h4>
+        <p>Muncie · Anderson · New Castle<br>Richmond · Marion · Kokomo<br>Henry · Delaware · Madison Counties</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <div>© 2026 BRCKEL Enterprises LLC · All Rights Reserved</div>
+      <div>Brandon Loveless, Founder · East Central Indiana</div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+    });
+
+    document.querySelectorAll('.ajax-form').forEach(form => {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const button = form.querySelector('button[type="submit"]');
+        const success = form.querySelector('.form-success');
+        const error = form.querySelector('.form-error');
+        success.style.display = 'none';
+        error.style.display = 'none';
+        button.disabled = true;
+        const original = button.textContent;
+        button.textContent = 'Sending...';
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            form.reset();
+            success.style.display = 'block';
+          } else {
+            error.style.display = 'block';
+          }
+        } catch (err) {
+          error.style.display = 'block';
+        } finally {
+          button.disabled = false;
+          button.textContent = original;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
