@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brckel.com/sitemap.xml
