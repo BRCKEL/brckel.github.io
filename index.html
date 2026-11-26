@@ -138,6 +138,7 @@
       section{padding:56px 20px}
     }
   </style>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfgxysuAAAAALJfmnrp0e_11uE1Hr5mBJUKmolJ"></script>
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -229,6 +230,7 @@
     <section>
       <div class="wrap-narrow">
         <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <h2>Property Information</h2><div class="divider"></div>
           <input type="hidden" name="_subject" value="🏚️ New Seller Lead — Indiana">
           <div class="grid-2">
@@ -268,6 +270,7 @@
         </div>
 
         <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST" style="max-width:720px;margin:60px auto 0">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <h2>Get Pre-Qualified</h2><div class="divider"></div>
           <input type="hidden" name="_subject" value="🏡 New Buyer Application — Indiana">
           <div class="grid-2">
@@ -328,6 +331,7 @@
           <div class="card"><h3>How We Protect Your Investment</h3><div class="list-row"><span class="check">✓</span><span>Low purchase prices create a strong equity buffer</span></div><div class="list-row"><span class="check">✓</span><span>Every loan secured by a physical real estate asset</span></div><div class="list-row"><span class="check">✓</span><span>We only pursue deals with strong profit margins</span></div></div>
         </div>
         <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST" style="max-width:650px;margin:50px auto 0">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <h2>See Current Opportunities</h2><div class="divider"></div>
           <input type="hidden" name="_subject" value="📈 New Investor Lead — Indiana">
           <div class="grid-2">
@@ -359,6 +363,7 @@
             <div class="list-row">🤝 <span><strong>No Obligation</strong><br>Zero pressure.</span></div>
           </div>
           <form class="card ajax-form" action="https://formspree.io/f/xpqkvlob" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
             <h2>Join the Buyer List</h2><div class="divider"></div>
             <input type="hidden" name="_subject" value="🎯 New Wholesale Buyer — Indiana">
             <div class="grid-2">
@@ -409,6 +414,10 @@
       a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
     });
 
+    // reCAPTCHA v3 site key for brckel.com (public key; the matching secret
+    // key lives in Formspree: form xpqkvlob > Settings > CAPTCHA > Custom).
+    const RECAPTCHA_SITE_KEY = '6LfgxysuAAAAALJfmnrp0e_11uE1Hr5mBJUKmolJ';
+
     document.querySelectorAll('.ajax-form').forEach(form => {
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -421,9 +430,22 @@
         const original = button.textContent;
         button.textContent = 'Sending...';
         try {
+          const data = new FormData(form);
+          // Formspree has CAPTCHA enabled on this form. Its default mode is a
+          // redirect challenge that AJAX forms cannot complete, so tokenless
+          // AJAX posts are rejected before storage. Attach a fresh v3 token
+          // as "g-recaptcha-response" (the field name Formspree looks for).
+          try {
+            await new Promise(resolve => grecaptcha.ready(resolve));
+            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+            if (token) data.append('g-recaptcha-response', token);
+          } catch (captchaErr) {
+            // reCAPTCHA unreachable (blocked script, etc.) - submit anyway;
+            // no worse than the previous behaviour.
+          }
           const response = await fetch(form.action, {
             method: 'POST',
-            body: new FormData(form),
+            body: data,
             headers: { 'Accept': 'application/json' }
           });
           if (response.ok) {
